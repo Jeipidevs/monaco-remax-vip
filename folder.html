@@ -29,7 +29,7 @@
             width: 100%;
             max-width: 1200px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 15px;
             background: var(--bg-dark);
             padding: 20px;
@@ -40,7 +40,8 @@
         .panel {
             background: var(--bg-dark);
             border: 1px solid rgba(255,255,255,0.1);
-            height: 600px;
+            height: auto;
+            min-height: 500px;
             padding: 30px;
             display: flex;
             flex-direction: column;
@@ -61,8 +62,16 @@
             margin-bottom: 10px;
         }
 
+        .panel-front p {
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
         .panel-interior {
-            background: var(--bg-dark-accent);
+            background: #111;
         }
 
         .gold-text { color: var(--primary); font-family: 'Outfit', sans-serif; }
@@ -91,6 +100,8 @@
             text-align: center;
             padding: 20px;
             background: var(--glass);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
             border-radius: 8px;
         }
 
@@ -102,21 +113,36 @@
             margin: 10px auto;
         }
 
+        .qr-section p { font-size: 0.8rem; margin-top: 10px; }
+
         .page-title {
             margin-bottom: 40px;
             text-align: center;
         }
+
+        /* Stats Styles */
+        .stats-container { margin-top: 30px; }
+        .stat-box { margin-bottom: 20px; }
+        .stat-value { font-size: 2rem; margin: 0; font-weight: bold; }
+        .stat-label { margin: 0; font-size: 0.9rem; color: #999; }
+        .panel-quote { margin-top: auto; font-size: 0.9rem; border-top: 1px solid var(--glass); padding-top: 20px; color: #999; font-style: italic; }
+
+        /* Footer Utilities */
+        .footer-logo { width: 120px; margin: 0 auto 20px; }
+        .footer-cta { margin-top: auto; }
+        .footer-cta p { margin: 0; }
 
         /* Mock specific images for interior */
         .panel-1 { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/marina_day.jpg') center/cover; }
         .panel-2 { background: var(--bg-dark); }
         .panel-3 { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/marina_night.jpg') center/cover; }
 
-        @media (max-width: 900px) {
+        /* Desktop Layout */
+        @media (min-width: 900px) {
             .folder-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
-            .panel { height: auto; min-height: 500px; }
+            .panel { height: 600px; }
         }
     </style>
 </head>
@@ -141,34 +167,34 @@
         <!-- Panel 2: Highlight Figures -->
         <div class="panel panel-2">
             <h2 class="gold-text">Exclusividade em Números</h2>
-            <div style="margin-top:30px;">
-                <div style="margin-bottom:20px;">
-                    <h3 style="font-size:2rem; margin:0;">250</h3>
-                    <p style="margin:0;">Vagas Náuticas</p>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3 class="stat-value">250</h3>
+                    <p class="stat-label">Vagas Náuticas</p>
                 </div>
-                <div style="margin-bottom:20px;">
-                    <h3 style="font-size:2rem; margin:0;">2.000m²</h3>
-                    <p style="margin:0;">Área de Piscina</p>
+                <div class="stat-box">
+                    <h3 class="stat-value">2.000m²</h3>
+                    <p class="stat-label">Área de Piscina</p>
                 </div>
-                <div style="margin-bottom:20px;">
-                    <h3 style="font-size:2rem; margin:0;">Heliporto</h3>
-                    <p style="margin:0;">Acesso Aéreo Privativo</p>
+                <div class="stat-box">
+                    <h3 class="stat-value">Heliporto</h3>
+                    <p class="stat-label">Acesso Aéreo Privativo</p>
                 </div>
             </div>
-            <p style="margin-top:auto; font-size: 0.9rem; border-top: 1px solid var(--glass); padding-top: 20px;">
-                "A inteligência estratégica da D1 uniu o melhor da náutica com o luxo residencial."
+            <p class="panel-quote">
+                "A inteligência estratégica da RE/MAX VIP uniu o melhor da náutica com o luxo residencial."
             </p>
         </div>
 
         <!-- Panel 3: Front Cover (When folded, this is the first thing seen) -->
         <div class="panel panel-front">
-            <img src="assets/logo_monaco_white.png" alt="Logo" style="width: 150px; margin: 0 auto 30px;">
+            <img src="assets/logo_monaco_white.png" alt="Logo" class="footer-logo">
             <h1>Mônaco Grand Marina</h1>
-            <p style="color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Capão da Canoa / RS</p>
+            <p>Capão da Canoa / RS</p>
         </div>
     </div>
 
-    <div class="folder-container" style="margin-top: 40px;">
+    <div class="folder-container footer-cta-section">
         <!-- Panel 4: Interior Visual -->
         <div class="panel panel-3">
             <h2 class="gold-text">Lifestyle</h2>
@@ -187,19 +213,19 @@
         </div>
 
         <!-- Panel 6: Back Cover / QR Code -->
-        <div class="panel panel-interior" style="text-align: center;">
-            <img src="assets/logo_monaco_color.png" alt="Logo" style="width: 120px; margin: 0 auto 20px;">
+        <div class="panel panel-interior centered-content">
+            <img src="assets/logo_monaco_color.png" alt="Logo" class="footer-logo">
             <p>Escaneie para mais informações e memorial descritivo.</p>
             <div class="qr-section">
                 <div class="qr-code">
                     <!-- QR Code pointing to the new URL -->
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://monaco.imobiliariavip.com" alt="QR Code">
                 </div>
-                <p style="font-size: 0.8rem; margin-top: 10px;">monaco.imobiliariavip.com</p>
+                <p>monaco.imobiliariavip.com</p>
             </div>
-            <div style="margin-top: auto;">
-                <p class="gold-text" style="font-weight: bold; margin-bottom: 5px;">RE/MAX VIP</p>
-                <p style="font-size: 0.8rem;">Vendas: (51) 99999-9999</p>
+            <div class="footer-cta">
+                <p class="gold-text bold-text">RE/MAX VIP</p>
+                <p class="small-text">Vendas: (51) 99999-9999</p>
             </div>
         </div>
     </div>

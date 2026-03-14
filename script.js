@@ -1,11 +1,27 @@
-// Navigation transparency on scroll
+// Navigation transparency and Mobile Menu Toggle
+const nav = document.querySelector('nav');
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
     } else {
         nav.classList.remove('scrolled');
     }
+});
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('is-active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('is-active');
+    });
 });
 
 // Scroll Reveal Animation Initialization
