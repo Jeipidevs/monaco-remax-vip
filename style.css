@@ -341,7 +341,6 @@ footer {
 .remax-logo {
   height: 50px;
   margin-top: 20px;
-  filter: brightness(0) invert(1); /* Make it white if it's the black version */
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
