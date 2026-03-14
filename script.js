@@ -79,8 +79,30 @@ function initROIChart() {
 
 initROIChart();
 
+// Smooth scroll for Agendar Visita button
+document.querySelectorAll('.btn-primary').forEach(button => {
+    if (button.textContent.includes('Agendar Visita')) {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const contactSection = document.getElementById('contato');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+});
+
 // Contact form submission
 document.getElementById('contact-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Obrigado pelo seu interesse. Nossa equipe de concierge entrará em contato em breve.');
+    const submitBtn = e.target.querySelector('button');
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+        alert('Obrigado pelo seu interesse. Nossa equipe de concierge entrará em contato em breve.');
+        e.target.reset();
+        submitBtn.textContent = 'Enviar Solicitação';
+        submitBtn.disabled = false;
+    }, 1500);
 });
