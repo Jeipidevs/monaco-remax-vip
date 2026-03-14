@@ -241,66 +241,6 @@ p {
 }
 
 /* Luxury Icons */
-.luxury-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
-  object-fit: contain;
-  display: block;
-}
-
-.amenities-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 50px;
-}
-
-.amenity-card {
-  padding: 40px 30px;
-  background: var(--bg-dark-accent);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.amenity-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top right, rgba(197, 160, 89, 0.05), transparent);
-  pointer-events: none;
-}
-
-.amenity-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-.amenity-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  color: var(--primary-light);
-  letter-spacing: 1px;
-}
-
-.amenity-card p {
-  font-size: 0.9rem;
-  color: var(--text-dim);
-  line-height: 1.5;
-}
-
 /* Investment */
 .investment-stats {
   padding: 30px 20px;

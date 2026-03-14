@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Profissional | Mônaco Grand Marina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #c5a059;
+            --primary-dark: #8a6d3b;
+            --bg-dark: #0a0c10;
+            --text-main: #fdfcf0;
+            --text-dim: #94a3b8;
+            --pearl: #fdfcf0;
+            --gold-gradient: linear-gradient(135deg, #8a6d3b 0%, #c5a059 50%, #f1d592 100%);
+            
+            /* A4 Dimensions (Landscape) */
+            --a4-width: 297mm;
+            --a4-height: 210mm;
+            --panel-width: 99mm;
+            --bleed: 3mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1a1c20;
+            font-family: 'Outfit', sans-serif;
+            padding: 40px 0;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .print-instruction {
+            max-width: 800px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+        }
+
+        /* Container that represents the paper */
+        .a4-page {
+            width: var(--a4-width);
+            height: var(--a4-height);
+            background: var(--bg-dark);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            display: flex;
+            overflow: hidden;
+            /* Simulation of trim area */
+            border: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        /* The 3 panels */
+        .panel {
+            width: var(--panel-width);
+            height: 100%;
+            position: relative;
+            padding: 15mm 10mm;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .panel:last-child {
+            border-right: none;
+        }
+
+        /* Fold Indicators (Non-printing) */
+        .fold-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(197, 160, 89, 0.2);
+            z-index: 10;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Specific styles for sides */
+        
+        /* EXTERNAL SIDE: Flap (Left), Back (Center), Front (Right) */
+        .side-external .panel-flap { order: 1; }
+        .side-external .panel-back { order: 2; border-left: 1px solid rgba(197, 160, 89, 0.1); }
+        .side-external .panel-front { 
+            order: 3; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/hero_render.jpg') center/cover;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 30mm;
+        }
+
+        /* INTERNAL SIDE: Left, Center, Right */
+        .side-internal .panel-legacy { order: 1; }
+        .side-internal .panel-middle { 
+            order: 2; 
+            width: var(--panel-width);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/marina_night.jpg') center/cover;
+            text-align: center;
+            justify-content: center;
+        }
+        .side-internal .panel-exclusive { order: 3; }
+
+        /* Content Blocks */
+        .logo-main {
+            width: 60mm;
+            margin-bottom: 10mm;
+        }
+
+        .stat-item {
+            margin-bottom: 15px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: block;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        .contact-block {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .qr-code {
+            background: white;
+            padding: 8px;
+            width: 30mm;
+            height: 30mm;
+            margin: 0 auto 15px;
+        }
+
+        .qr-code img { width: 100%; height: 100%; }
+
+        .btn-fake {
+            display: block;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .a4-page { 
+                box-shadow: none; 
+                border: none;
+                page-break-after: always;
+            }
+            .print-instruction, .fold-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-instruction">
+        <h2 style="color: #fff; margin-bottom: 10px;">Versão para Impressão Profissional</h2>
+        <p>Abaixo estão os dois lados do folder tri-fold (Externo e Interno). Configure sua impressora para <b>Paisagem (Landscape)</b>, Escala 100%, e papel de gramatura superior (couché 250g ou similar).</p>
+        <button onclick="window.print()" class="btn-fake" style="cursor:pointer; display:inline-block; width: auto; padding: 10px 30px;">IMPRIMIR AGORA</button>
+    </div>
+
+    <!-- LADO EXTERNO -->
+    <div class="a4-page side-external">
+        <!-- Panel 1: Flap (Left when opened, folded inside) -->
+        <div class="panel panel-flap">
+            <h2 class="gold-text">Lifestyle</h2>
+            <p>O prazer de navegar inicia na sua porta. Um ecossistema completo de lazer, gastronomia e conveniência náutica.</p>
+            <div style="margin-top: 20px;">
+                <p>• Concierge Náutico 24h</p>
+                <p>• Abastecimento Exclusivo</p>
+                <p>• Lounge de Comandantes</p>
+            </div>
+            <p style="margin-top: auto; font-style: italic; color: var(--text-dim); font-size: 0.8rem;">
+                "A excelência marítima encontra o conforto urbano em um único endereço."
+            </p>
+        </div>
+
+        <!-- Panel 2: Back (Center) -->
+        <div class="panel panel-back">
+            <div style="text-align: center;">
+                <img src="assets/remax_logo.png" alt="RE/MAX VIP" style="height: 40px; margin-bottom: 20px;">
+                <h2 style="font-size: 1.4rem;">Conecte-se</h2>
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://monaco.imobiliariavip.com" alt="QR Code">
+                </div>
+                <p style="font-weight: 700; color: var(--primary);">monaco.imobiliariavip.com</p>
+            </div>
+            
+            <div class="contact-block">
+                <p class="gold-text" style="font-size: 1.2rem; font-weight: 700;">Junior Martins</p>
+                <p style="font-weight: 600;">(51) 98594-5354</p>
+                <p style="font-size: 0.7rem; color: var(--text-dim);">RE/MAX VIP | Capão da Canoa, RS</p>
+            </div>
+        </div>
+
+        <!-- Panel 3: Front (Right - This is the cover) -->
+        <div class="panel panel-front">
+            <img src="assets/logo_monaco_white.png" alt="Monaco Logo" style="width: 40mm; margin: 0 auto 10mm;">
+            <h2 style="font-size: 3rem; color: #fff; text-shadow: 0 4px 15px rgba(0,0,0,1);">Mônaco</h2>
+            <p style="text-transform: uppercase; letter-spacing: 5px; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,1);">Grand Marina</p>
+        </div>
+        
+        <!-- Folds -->
+        <div class="fold-line" style="left: 99mm;"></div>
+        <div class="fold-line" style="left: 198mm;"></div>
+    </div>
+
+    <!-- LADO INTERNO -->
+    <div class="a4-page side-internal">
+        <!-- Panel 1: Legacy (Left) -->
+        <div class="panel panel-legacy">
+            <h2 class="gold-text">O Legado</h2>
+            <p>Aguarda-se por este momento há 15 anos. O último grande terreno à beira da Lagoa dos Quadros, transformado em obra-prima.</p>
+            <div class="stat-item">
+                <span class="stat-value gold-text">250</span>
+                <span class="stat-label">Vagas Náuticas Privativas</span>
+            </div>
+            <p style="margin-top: 20px; border-left: 2px solid var(--primary); padding-left: 15px;">
+                "Um marco que redefine o conceito de luxo náutico no litoral gaúcho."
+            </p>
+        </div>
+
+        <!-- Panel 2: Panorama (Center) -->
+        <div class="panel panel-middle">
+            <h2 style="color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.8); font-size: 2.2rem;">Sinta a<br>Liberdade</h2>
+        </div>
+
+        <!-- Panel 3: Exclusivity (Right) -->
+        <div class="panel panel-exclusive">
+            <h2 class="gold-text">Exclusividade</h2>
+            <p>A única marina de alto padrão integrada ao tecido urbano de Capão da Canoa.</p>
+            <div class="stat-item">
+                <span class="stat-value gold-text">Heliporto</span>
+                <span class="stat-label">Operações Noturnas Homologadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value gold-text">2.000m²</span>
+                <span class="stat-label">Complexo de Águas Resort</span>
+            </div>
+        </div>
+        
+        <!-- Folds -->
+        <div class="fold-line" style="left: 99mm;"></div>
+        <div class="fold-line" style="left: 198mm;"></div>
+    </div>
+
+</body>
+</html>
