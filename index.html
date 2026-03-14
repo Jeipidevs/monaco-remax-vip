@@ -28,7 +28,7 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1 class="animate-in">Mônaco Grand Marina</h1>
+            <h1 class="animate-in heading-font">Mônaco Grand Marina</h1>
             <p class="animate-in delay-1">Onde o luxo encontra as águas. Um projeto aguardado por 15 anos se torna realidade.</p>
             <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
                 <button class="btn-primary animate-in delay-2">Agendar Visita</button>
@@ -38,15 +38,15 @@
     </header>
 
                 <div class="text-side animate-in">
-                    <h2 class="gold-text">Um Ícone em Capão da Canoa</h2>
+                    <h2 class="gold-text heading-font">Um Ícone em Capão da Canoa</h2>
                     <p>Localizado no prestigiado Condomínio Liberdade, o Mônaco Grand Marina não é apenas um prédio, é um marco. Após 15 anos de espera por este terreno único, a RE/MAX VIP apresenta a primeira marina particular da região.</p>
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <h3>250</h3>
+                            <h3 class="heading-font">250</h3>
                             <p>Vagas de Marina</p>
                         </div>
                         <div class="stat-item">
-                            <h3>2.000m²</h3>
+                            <h3 class="heading-font">2.000m²</h3>
                             <p>Piscina Tropical</p>
                         </div>
                     </div>
@@ -62,24 +62,27 @@
 
     <section id="amenities" class="section bg-light-section">
         <div class="container text-center">
-            <h2 class="gold-text">Infraestrutura Sem Precedentes</h2>
-            <div class="amenities-grid">
+            <h2 class="gold-text heading-font">Infraestrutura Sem Precedentes</h2>
                 <div class="glass-card amenity-card">
-                    <div class="icon">🛸</div>
-                    <h3>Heliporto Exclusivo</h3>
-                    <p>Chegue e saia com a agilidade que sua vida exige.</p>
+                    <img src="assets/helicopter_gold.png" alt="Heliporto" class="luxury-icon">
+                    <h3 class="heading-font">Heliporto Privativo</h3>
+                    <p>Agilidade e privacidade para seus deslocamentos aéreos mais exclusivos.</p>
                 </div>
                 <div class="glass-card amenity-card">
-                    <div class="icon">⛳</div>
-                    <h3>Golfe & Lazer</h3>
-                    <p>Campos de golfe integrados à natureza exuberante.</p>
+                    <img src="assets/yacht_gold.png" alt="Marina" class="luxury-icon">
+                    <h3 class="heading-font">Marina de Classe Mundial</h3>
+                    <p>Sua embarcação atracada em uma infraestrutura náutica impecável.</p>
                 </div>
                 <div class="glass-card amenity-card">
-                    <div class="icon">⛵</div>
-                    <h3>Marina Particular</h3>
-                    <p>Sua embarcação atracada na porta de casa.</p>
+                    <img src="assets/pool_gold.png" alt="Lazer" class="luxury-icon">
+                    <h3 class="heading-font">Experiência Resort</h3>
+                    <p>Piscinas tropicais e oásis de relaxamento para a elite.</p>
                 </div>
-            </div>
+                <div class="glass-card amenity-card">
+                    <img src="assets/golf_gold.png" alt="Golf" class="luxury-icon">
+                    <h3 class="heading-font">Exclusividade & Esporte</h3>
+                    <p>Simuladores de Golf e lazer de alto nível em cada detalhe.</p>
+                </div>
         </div>
     </section>
 
@@ -107,7 +110,14 @@
     <section id="contato" class="section">
         <div class="container">
             <div class="contact-box glass-card">
-                <h2 class="gold-text">Solicite o Memorial Descritivo</h2>
+                <h2 class="gold-text">Fale com Junior Martins</h2>
+                <p style="margin-bottom: 25px;">Consultor de Luxo RE/MAX VIP</p>
+                <div style="margin-bottom: 30px;">
+                    <a href="https://wa.me/5551985945354" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px;">
+                        <img src="https://img.icons8.com/ios-filled/24/000000/whatsapp.png" style="width: 20px; filter: brightness(0);">
+                        (51) 98594-5354
+                    </a>
+                </div>
                 <form id="contact-form">
                     <input type="text" placeholder="Nome Completo" required>
                     <input type="email" placeholder="E-mail" required>
@@ -120,9 +130,12 @@
 
     <footer>
         <div class="container text-center">
-            <img src="assets/logo_monaco_white.png" alt="Logo" class="footer-logo">
-            <p>&copy; 2026 RE/MAX VIP. Todos os direitos reservados.</p>
-            <p>Capão da Canoa - Rio Grande do Sul</p>
+            <img src="assets/logo_monaco_white.png" alt="Monaco Logo" class="footer-logo">
+            <div style="margin: 20px 0;">
+                <img src="assets/remax_logo.png" alt="RE/MAX VIP Logo" class="remax-logo">
+            </div>
+            <p>&copy; 2026 RE/MAX VIP. Junior Martins - Consultoria de Luxo.</p>
+            <p>Capão da Canoa - Rio Grande do Sul | (51) 98594-5354</p>
         </div>
     </footer>
 
