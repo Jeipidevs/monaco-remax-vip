@@ -108,14 +108,29 @@ Cidade: ${cidade}`;
         window.open(`https://wa.me/5551985945354?text=${encodeURIComponent(message)}`, '_blank');
         
         // Success behavior
-        leadForm.reset();
         const successMsg = document.getElementById('successMessage');
-        if (successMsg) {
-            successMsg.classList.remove('hidden');
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 5000);
+        const formSubmitBtn = leadForm.querySelector('button[type="submit"]');
+        
+        if (formSubmitBtn) {
+            formSubmitBtn.disabled = true;
+            formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
         }
+
+        setTimeout(() => {
+            leadForm.reset();
+            if (formSubmitBtn) {
+                formSubmitBtn.disabled = false;
+                formSubmitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Receber Apresentação Completa';
+            }
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+                successMsg.classList.add('animate-bounce');
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                    successMsg.classList.remove('animate-bounce');
+                }, 8000);
+            }
+        }, 1500);
     });
 }
 
@@ -141,13 +156,22 @@ function initROIChart() {
             </rect>
             <text x="140" y="195" fill="#94a3b8" font-size="10">Condomínio</text>
 
-            <rect x="220" y="180" width="40" height="0" fill="#C5A059">
-                <animate attributeName="height" from="0" to="160" dur="1.5s" fill="freeze" />
-                <animate attributeName="y" from="180" to="20" dur="1.5s" fill="freeze" />
+            <rect x="220" y="180" width="40" height="0" fill="url(#goldGrad)">
+                <animate attributeName="height" from="0" to="160" dur="2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+                <animate attributeName="y" from="180" to="20" dur="2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
             </rect>
+            <defs>
+                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#B8941F;stop-opacity:1" />
+                </linearGradient>
+            </defs>
             <text x="220" y="195" fill="#C5A059" font-size="10" font-weight="bold">GRAND MARINA</text>
             
-            <text x="50" y="130" fill="white" font-size="12">320% ROI Potencial</text>
+            <text x="50" y="130" fill="white" font-size="12" opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="1s" begin="1.5s" fill="freeze" />
+                320% ROI Potencial
+            </text>
         </svg>
     `;
 }

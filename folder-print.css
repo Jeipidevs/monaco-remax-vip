@@ -1,5 +1,5 @@
 /* Folder Print specific styles */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary: #c5a059;
@@ -25,7 +25,7 @@
 
 body {
     background-color: #1a1c20;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding: 40px 0;
     color: var(--text-main);
     display: flex;
@@ -264,11 +264,23 @@ p {
 }
 
 @media print {
-    body { background: white; padding: 0; }
+    body { 
+        background: white !important; 
+        padding: 0; 
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
     .a4-page { 
         box-shadow: none; 
         border: none;
         page-break-after: always;
+        background: #0a0c10 !important; 
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .panel {
+        color: #fff !important; /* Keep text readable against dark background */
     }
     .print-instruction, .fold-line { display: none; }
 }

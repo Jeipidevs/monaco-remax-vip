@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* High-Luxury Color Palette */
@@ -37,7 +37,7 @@
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.7;
@@ -60,16 +60,59 @@ h1, h2, h3, .heading-font {
 }
 
 .glass-card, .glass-morphism {
-  background: var(--glass);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius);
   padding: 30px 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.4s ease;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.1) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
 }
 
 .gold-glow {
   box-shadow: 0 0 20px var(--primary-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.gold-glow:hover::after {
+  left: 100%;
+  top: 100%;
 }
 
 .card-hover {
@@ -174,15 +217,37 @@ h1, h2, h3, .heading-font {
 
 .btn-gold {
   background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-  color: #0A1929;
+  color: #0A1929 !important;
   font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
 }
 
 .btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
 }
 
 .btn-outline-gold {
@@ -399,6 +464,15 @@ p {
   color: var(--primary);
 }
 
+/* Global Icon Standardization */
+.fas, .fab, .far, .fa-solid, .fa-regular, .fa-brands {
+    color: var(--primary) !important;
+}
+
+.btn .fas, .btn .fab, .btn .far, .btn .fa-solid, .btn .fa-regular, .btn .fa-brands {
+    color: inherit !important;
+}
+
 /* Luxury Icons */
 /* Investment */
 .investment-stats {
@@ -424,7 +498,7 @@ p {
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
 }
 
