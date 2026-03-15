@@ -1,46 +1,123 @@
+// Initialize AOS
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+}
+
 // Navigation transparency and Mobile Menu Toggle
-const nav = document.querySelector('nav');
+const navSticky = document.querySelector('.nav-sticky');
 const menuToggle = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
+    if (window.scrollY > 100) {
+        if (navSticky) navSticky.classList.add('scrolled');
     } else {
-        nav.classList.remove('scrolled');
+        if (navSticky) navSticky.classList.remove('scrolled');
     }
 });
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('is-active');
-});
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('is-active');
+    });
+}
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('is-active');
+        if (navLinks) navLinks.classList.remove('active');
+        if (menuToggle) menuToggle.classList.remove('is-active');
     });
 });
 
-// Scroll Reveal Animation Initialization
-const observerOptions = {
-    threshold: 0.1
-};
+// Smooth scroll function
+function scrollToForm() {
+    const el = document.getElementById('contato');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
+// WhatsApp redirect
+function openWhatsApp() {
+    window.open('https://wa.me/5551985945354?text=Olá!%20Quero%20conhecer%20o%20Mônaco%20Grand%20Marina', '_blank');
+}
+
+// Lightbox
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    if (lightbox && lightboxImg) {
+        lightbox.classList.add('active');
+        lightboxImg.src = src;
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+    }
+}
+
+// Phone mask (BR pattern)
+const phoneInput = document.getElementById('telefone');
+if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.slice(0, 11);
+        
+        if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+        } else if (value.length > 5) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+        } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+        } else if (value.length > 0) {
+            value = value.replace(/^(\d*)/, '($1');
+        }
+        
+        e.target.value = value;
+    });
+}
+
+// Lead Capture Form
+const leadForm = document.getElementById('leadForm');
+if (leadForm) {
+    leadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const email = document.getElementById('email').value;
+        const cidade = document.getElementById('cidade').value;
+        
+        // Simulating API call
+        console.log('Lead capturado:', { nome, telefone, email, cidade });
+        
+        // Redirect to WhatsApp with info
+        const message = `Olá Junior Martins! Tenho interesse no Mônaco Grand Marina.
+Nome: ${nome}
+WhatsApp: ${telefone}
+Email: ${email}
+Cidade: ${cidade}`;
+        
+        window.open(`https://wa.me/5551985945354?text=${encodeURIComponent(message)}`, '_blank');
+        
+        // Success behavior
+        leadForm.reset();
+        const successMsg = document.getElementById('successMessage');
+        if (successMsg) {
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
         }
     });
-}, observerOptions);
-
-document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
-});
+}
 
 // ROI Chart Animation (Simplified SVG Chart)
 function initROIChart() {
@@ -49,11 +126,9 @@ function initROIChart() {
 
     container.innerHTML = `
         <svg viewBox="0 0 400 200" style="width: 100%; height: 100%;">
-            <!-- Grid Lines -->
             <line x1="40" y1="20" x2="40" y2="180" stroke="#334155" stroke-width="1" />
             <line x1="40" y1="180" x2="380" y2="180" stroke="#334155" stroke-width="1" />
             
-            <!-- Bars -->
             <rect x="60" y="180" width="40" height="0" fill="#334155">
                 <animate attributeName="height" from="0" to="40" dur="1.5s" fill="freeze" />
                 <animate attributeName="y" from="180" to="140" dur="1.5s" fill="freeze" />
@@ -66,43 +141,15 @@ function initROIChart() {
             </rect>
             <text x="140" y="195" fill="#94a3b8" font-size="10">Condomínio</text>
 
-            <rect x="220" y="180" width="40" height="0" fill="#c5a059">
+            <rect x="220" y="180" width="40" height="0" fill="#C5A059">
                 <animate attributeName="height" from="0" to="160" dur="1.5s" fill="freeze" />
                 <animate attributeName="y" from="180" to="20" dur="1.5s" fill="freeze" />
             </rect>
-            <text x="220" y="195" fill="#c5a059" font-size="10" font-weight="bold">GRAND MARINA</text>
+            <text x="220" y="195" fill="#C5A059" font-size="10" font-weight="bold">GRAND MARINA</text>
             
-            <text x="50" y="130" fill="white" font-size="12">320% ROI</text>
+            <text x="50" y="130" fill="white" font-size="12">320% ROI Potencial</text>
         </svg>
     `;
 }
 
-initROIChart();
-
-// Smooth scroll for Agendar Visita button
-document.querySelectorAll('.btn-primary').forEach(button => {
-    if (button.textContent.includes('Agendar Visita')) {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const contactSection = document.getElementById('contato');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-});
-
-// Contact form submission
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const submitBtn = e.target.querySelector('button');
-    submitBtn.textContent = 'Enviando...';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-        alert('Obrigado pelo seu interesse. Nossa equipe de concierge entrará em contato em breve.');
-        e.target.reset();
-        submitBtn.textContent = 'Enviar Solicitação';
-        submitBtn.disabled = false;
-    }, 1500);
-});
+document.addEventListener('DOMContentLoaded', initROIChart);
