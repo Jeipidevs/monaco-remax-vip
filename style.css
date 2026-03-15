@@ -162,23 +162,47 @@ h1, h2, h3, .heading-font {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #25d366;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  font-size: 32px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-  background-color: #128c7e;
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  z-index: -1;
+  opacity: 0.6;
+  animation: pulse-ring 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
 }
 
 .section-padding {
@@ -276,9 +300,7 @@ h1, h2, h3, .heading-font {
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-.whatsapp-float i {
-  animation: pulse 2s infinite;
-}
+/* Botão WhatsApp animation cleanup */
 
 @media (max-width: 768px) {
   .parallax {
@@ -294,10 +316,11 @@ h1, h2, h3, .heading-font {
 
 .gold-text {
   color: var(--primary);
-  background: linear-gradient(135deg, #c5a059 0%, #f1d592 50%, #c5a059 100%);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .btn-primary {
@@ -427,7 +450,7 @@ nav {
   padding: var(--section-padding);
 }
 
-.bg-light-section {
+.bg-dark-accent {
   background-color: var(--bg-dark-accent);
 }
 
@@ -492,14 +515,26 @@ p {
   margin-top: 30px;
 }
 
-#contact-form input {
-  padding: 14px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--glass-border);
-  border-radius: 8px;
-  color: white;
+#leadForm input, #leadForm textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  border-radius: 12px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+#leadForm input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#leadForm input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 footer {
