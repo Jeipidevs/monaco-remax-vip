@@ -1,17 +1,23 @@
 /* Digital Folder specific styles */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #c5a059;
+    --navy: #050A14;
+    --charcoal: #0A0A0A;
+    --gold: #C5A059;
+    --primary: var(--gold);
     --primary-light: #f1d592;
-    --bg-dark: #0a0c10;
-    --bg-dark-accent: #14171c;
+    --bg-dark: var(--charcoal);
+    --bg-dark-accent: var(--navy);
     --text-main: #fdfcf0; /* Pearl White */
     --text-dim: #94a3b8;
+    --premium-font: 'Playfair Display', serif;
+    --body-font: 'Inter', sans-serif;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(12px);
     --gold-gradient: linear-gradient(135deg, #8a6d3b 0%, #c5a059 50%, #f1d592 100%);
-    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: 0.4s ease-out;
 }
 
 * {
@@ -22,27 +28,19 @@
 
 body {
     background-color: #050608;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--body-font);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
     padding: 60px 20px;
 }
 
-.page-title {
-    text-align: center;
-    margin-bottom: 60px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards ease-out;
-}
-
 .page-title h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-family: var(--premium-font);
+    font-weight: 700;
     font-size: 3rem;
     margin-bottom: 10px;
-    letter-spacing: 6px;
+    letter-spacing: 2px;
 }
 
 .page-title p {
@@ -171,7 +169,7 @@ body {
 
 .panel-quote {
     font-style: italic;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--body-font);
     font-weight: 300;
     font-size: 1.1rem;
     margin-top: auto;

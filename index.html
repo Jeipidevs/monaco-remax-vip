@@ -26,10 +26,10 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Links de Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <body class="bg-dark text-pearl">
     
     <!-- Navigation -->
-    <nav class="nav-sticky fixed w-full z-50 py-4 bg-dark/80 backdrop-blur-lg border-b border-yellow-500/10 transition-all duration-300">
+    <nav class="nav-sticky fixed w-full z-50 py-4 glass-morphism border-b border-gold/10 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="assets/logo_monaco_white.png" alt="Mônaco Grand Marina" class="h-12 md:h-16">
@@ -111,7 +111,7 @@
     </section>
 
     <!-- Conceito -->
-    <section id="conceito" class="py-20 bg-[#14171c]">
+    <section id="conceito" class="py-32 bg-charcoal">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
@@ -136,8 +136,8 @@
     </section>
 
     <!-- Lifestyle Náutico -->
-    <section class="py-20 relative parallax" style="background-image: url('assets/hero_render.jpg');">
-        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+    <section class="py-32 relative parallax" style="background-image: url('assets/hero_render.jpg');">
+        <div class="absolute inset-0 cinematic-overlay"></div>
         <div class="container mx-auto px-4 relative z-10">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white" data-aos="fade-up">
                 Lifestyle <span class="text-gradient">Náutico</span>
@@ -180,14 +180,14 @@
     </section>
 
     <!-- Estrutura -->
-    <section id="estrutura" class="py-20 bg-[#14171c]">
+    <section id="estrutura" class="py-32 bg-navy">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
                 Estrutura <span class="text-gradient">Completa</span>
             </h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-dark p-8 rounded-lg border border-yellow-500/10 card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card card-hover" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-yellow-500 text-5xl mb-4">
                         <i class="fas fa-hotel"></i>
                     </div>
@@ -263,7 +263,7 @@
     </section>
 
     <!-- Implantação -->
-    <section id="implantacao" class="py-20 bg-[#0a0c10]">
+    <section id="implantacao" class="py-32 bg-charcoal">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" data-aos="fade-up">
                 Implantação do <span class="text-gradient">Condomínio</span>
@@ -289,14 +289,14 @@
             </div>
             
             <div class="max-w-5xl mx-auto" data-aos="fade-up">
-                <img src="assets/marina_day.jpg" alt="Mapa do Empreendimento" class="w-full rounded-lg shadow-2xl cursor-pointer" onclick="openLightbox(this.src)">
-                <p class="text-center text-gray-500 mt-4">Clique na imagem para ampliar o mapa de implantação</p>
+                <img src="assets/marina_day.jpg" alt="Mapa do Empreendimento" class="w-full rounded-lg shadow-2xl cursor-pointer" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                <p class="text-center text-gray-500 mt-4 italic">Clique na imagem para ampliar o mapa de implantação</p>
             </div>
         </div>
     </section>
 
     <!-- Galeria -->
-    <section id="galeria" class="py-20 bg-[#14171c]">
+    <section id="galeria" class="py-32 bg-navy">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
                 Galeria de <span class="text-gradient">Exclusividade</span>
@@ -304,22 +304,22 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/clubhouse_facade.jpg" alt="Fachada do Club House" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/clubhouse_facade.jpg" alt="Fachada do Club House" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <img src="assets/clubhouse_pool.jpg" alt="Clube Náutico e Piscina" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/marina_night.jpg" alt="Marina à Noite" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <img src="assets/pool_sunset.jpg" alt="Pôr do sol na piscina" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/pool_sunset.jpg" alt="Pôr do sol na piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="400">
-                    <img src="assets/marina_day.jpg" alt="Vista Aérea da Marina" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/marina_day.jpg" alt="Vista Aérea da Marina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="500">
-                    <img src="assets/luxury_houses.jpg" alt="Residências de Alto Padrão" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/luxury_houses.jpg" alt="Residências de Alto Padrão" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="600">
-                    <img src="assets/pool_view.jpg" alt="Vista Exclusiva da Piscina" class="w-full h-64 object-cover" onclick="openLightbox(this.src)">
+                    <img src="assets/pool_view.jpg" alt="Vista Exclusiva da Piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
                 </div>
             </div>
         </div>

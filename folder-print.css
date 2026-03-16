@@ -1,12 +1,16 @@
-/* Folder Print specific styles */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #c5a059;
+    --navy: #050A14;
+    --charcoal: #0A0A0A;
+    --gold: #C5A059;
+    --primary: var(--gold);
     --primary-dark: #8a6d3b;
-    --bg-dark: #0a0c10;
+    --bg-dark: var(--charcoal);
     --text-main: #fdfcf0;
     --text-dim: #94a3b8;
+    --premium-font: 'Playfair Display', serif;
+    --body-font: 'Inter', sans-serif;
     --pearl: #fdfcf0;
     --gold-gradient: linear-gradient(135deg, #8a6d3b 0%, #c5a059 50%, #f1d592 100%);
     
@@ -25,7 +29,7 @@
 
 body {
     background-color: #1a1c20;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--body-font);
     padding: 40px 0;
     color: var(--text-main);
     display: flex;
@@ -86,7 +90,7 @@ body {
 .fold-2 { left: 198mm; }
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--body-font);
     font-weight: 800;
     font-size: 1.6rem;
     color: var(--primary);
@@ -219,7 +223,7 @@ p {
 
 .panel-quote, .internal-quote {
     font-style: italic; 
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--body-font);
     font-weight: 300;
     color: var(--text-dim); 
     font-size: 0.8rem;
