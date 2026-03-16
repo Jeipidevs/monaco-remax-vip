@@ -57,7 +57,7 @@
     <nav class="nav-sticky fixed w-full z-50 py-4 glass-morphism border-b border-gold/10 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="assets/logo_monaco_white.png" alt="Mônaco Grand Marina" class="h-12 md:h-16">
+                <img src="assets/logo_monaco_white.png" alt="Mônaco Grand Marina" class="h-12 md:h-16" width="180" height="64">
             </div>
             <div class="hidden lg:flex space-x-8">
                 <a href="#conceito" class="text-white hover:text-yellow-400 transition font-medium">Conceito</a>
@@ -79,7 +79,7 @@
         <div class="absolute inset-0">
             <picture>
                 <source srcset="assets/hero_render.webp" type="image/webp">
-                <img src="assets/hero_render.jpg" alt="Mônaco Grand Marina - Vista panorâmica do condomínio náutico na Lagoa dos Quadros" class="w-full h-full object-cover">
+                <img src="assets/hero_render.jpg" alt="Mônaco Grand Marina - Vista panorâmica do condomínio náutico na Lagoa dos Quadros" class="w-full h-full object-cover" fetchpriority="high" width="1920" height="1080">
             </picture>
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
@@ -129,7 +129,7 @@
                 <div data-aos="fade-right">
                     <picture>
                         <source srcset="assets/clubhouse_facade.webp" type="image/webp">
-                        <img src="assets/clubhouse_facade.jpg" alt="Fachada imponente e moderna do Club House no Mônaco Grand Marina" class="rounded-lg shadow-2xl w-full h-auto" loading="lazy">
+                        <img src="assets/clubhouse_facade.jpg" alt="Fachada imponente e moderna do Club House no Mônaco Grand Marina" class="rounded-lg shadow-2xl w-full h-auto" loading="lazy" width="800" height="600" decoding="async">
                     </picture>
                 </div>
                 <div data-aos="fade-left">
@@ -330,31 +330,31 @@
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="200">
                     <picture>
                         <source srcset="assets/marina_night.webp" type="image/webp">
-                        <img src="assets/marina_night.jpg" alt="Marina iluminada durante a noite" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                        <img src="assets/marina_night.jpg" alt="Marina iluminada durante a noite" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)" width="600" height="400">
                     </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="300">
                     <picture>
                         <source srcset="assets/pool_sunset.webp" type="image/webp">
-                        <img src="assets/pool_sunset.jpg" alt="Pôr do sol cinematográfico visto da piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                        <img src="assets/pool_sunset.jpg" alt="Pôr do sol cinematográfico visto da piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)" width="600" height="400">
                     </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="400">
                     <picture>
                         <source srcset="assets/clubhouse_pool.webp" type="image/webp">
-                        <img src="assets/clubhouse_pool.jpg" alt="Área de lazer interna e boliche no Club House" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                        <img src="assets/clubhouse_pool.jpg" alt="Área de lazer interna e boliche no Club House" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)" width="600" height="400">
                     </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="500">
                     <picture>
                         <source srcset="assets/luxury_houses.webp" type="image/webp">
-                        <img src="assets/luxury_houses.jpg" alt="Casas de luxo integradas aos canais" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                        <img src="assets/luxury_houses.jpg" alt="Casas de luxo integradas aos canais" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)" width="600" height="400">
                     </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="600">
                     <picture>
                         <source srcset="assets/pool_view.webp" type="image/webp">
-                        <img src="assets/pool_view.jpg" alt="Vista relaxante da área das piscinas" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                        <img src="assets/pool_view.jpg" alt="Vista relaxante da área das piscinas" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)" width="600" height="400">
                     </picture>
                 </div>
             </div>
@@ -440,7 +440,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-6 text-yellow-400">Consultoria</h3>
                     <div class="mb-4">
-                        <img src="assets/remax_logo.png" alt="RE/MAX VIP" class="h-12 mx-auto md:mx-0 mb-4 brightness-110">
+                        <img src="assets/remax_logo.png" alt="RE/MAX VIP" class="h-12 mx-auto md:mx-0 mb-4 brightness-110" width="120" height="50" loading="lazy">
                     </div>
                     <p class="text-gray-400 mb-2">
                         <i class="fab fa-whatsapp mr-2"></i>
@@ -489,7 +489,7 @@
     </a>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
