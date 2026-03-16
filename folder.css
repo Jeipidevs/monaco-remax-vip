@@ -38,10 +38,11 @@ body {
 }
 
 .page-title h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
     font-size: 3rem;
     margin-bottom: 10px;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
 }
 
 .page-title p {
@@ -122,7 +123,7 @@ body {
 }
 
 .panel-lifestyle {
-    background: linear-gradient(rgba(10,12,16,0.8), rgba(10,12,16,0.8)), url('assets/marina_night.jpg') center/cover;
+    background: linear-gradient(rgba(10,12,16,0.8), rgba(10,12,16,0.8)), url('assets/pool_view.jpg') center/cover;
 }
 
 .feature-list {
@@ -170,8 +171,9 @@ body {
 
 .panel-quote {
     font-style: italic;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
     margin-top: auto;
     color: var(--primary-light);
     border-left: 2px solid var(--primary);

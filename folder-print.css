@@ -86,11 +86,12 @@ body {
 .fold-2 { left: 198mm; }
 
 h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
     color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -155,7 +156,7 @@ p {
 .side-internal .panel-middle { 
     order: 2; 
     width: var(--panel-width);
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/marina_night.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/marina_day.jpg') center/cover;
     text-align: center;
     justify-content: center;
 }
@@ -218,6 +219,8 @@ p {
 
 .panel-quote, .internal-quote {
     font-style: italic; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
     color: var(--text-dim); 
     font-size: 0.8rem;
     margin-top: auto;
