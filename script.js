@@ -23,8 +23,8 @@ backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
+function handleScroll() {
+    if (window.scrollY > 50) {
         if (navSticky) navSticky.classList.add('scrolled');
     } else {
         if (navSticky) navSticky.classList.remove('scrolled');
@@ -35,7 +35,12 @@ window.addEventListener('scroll', () => {
     } else {
         backToTop.classList.remove('active');
     }
-});
+}
+
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
+document.addEventListener('DOMContentLoaded', handleScroll);
+
 
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
