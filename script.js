@@ -12,11 +12,27 @@ const navSticky = document.querySelector('.nav-sticky');
 const menuToggle = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
+// Back to Top button
+const backToTop = document.createElement('div');
+backToTop.className = 'back-to-top';
+backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+document.body.appendChild(backToTop);
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
         if (navSticky) navSticky.classList.add('scrolled');
     } else {
         if (navSticky) navSticky.classList.remove('scrolled');
+    }
+
+    if (window.scrollY > 500) {
+        backToTop.classList.add('active');
+    } else {
+        backToTop.classList.remove('active');
     }
 });
 

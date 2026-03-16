@@ -319,12 +319,86 @@ h1, h2, h3, .heading-font {
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* Botão WhatsApp animation cleanup */
-
+/* Botão WhatsApp animation cleanup and mobile responsiveness */
 @media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
   }
+  
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background: var(--gold-gradient);
+  color: var(--navy);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  z-index: 999;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+  bottom: 110px;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 20px;
+    bottom: 90px;
+  }
+  .back-to-top.active {
+    bottom: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
+    right: 15px;
+    bottom: 75px;
+    width: 40px;
+    height: 40px;
+  }
+  .back-to-top.active {
+    bottom: 85px;
+  }
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4);
 }
 
 /* Utilities for cleanup */

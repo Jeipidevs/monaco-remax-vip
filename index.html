@@ -23,6 +23,15 @@
 
     <title>Mônaco Grand Marina | Condomínio Náutico de Alto Padrão</title>
     
+    <!-- SEO Enhancements -->
+    <meta name="author" content="RE/MAX VIP">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://monaco.imobiliariavip.com/">
+    
+    <!-- Open Graph Content -->
+    <meta property="og:site_name" content="Mônaco Grand Marina">
+    <meta property="og:locale" content="pt_BR">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -68,7 +77,10 @@
     <!-- Hero Section -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="assets/hero_render.jpg" alt="Mônaco Grand Marina" class="w-full h-full object-cover">
+            <picture>
+                <source srcset="assets/hero_render.webp" type="image/webp">
+                <img src="assets/hero_render.jpg" alt="Mônaco Grand Marina - Vista panorâmica do condomínio náutico na Lagoa dos Quadros" class="w-full h-full object-cover">
+            </picture>
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         
@@ -115,7 +127,10 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="assets/marina_day.jpg" alt="Lagoa dos Quadros - Mônaco Grand Marina" class="rounded-lg shadow-2xl w-full h-auto">
+                    <picture>
+                        <source srcset="assets/marina_day.webp" type="image/webp">
+                        <img src="assets/marina_day.jpg" alt="Vista aérea diurna da Marina no Condomínio Mônaco Grand Marina" class="rounded-lg shadow-2xl w-full h-auto" loading="lazy">
+                    </picture>
                 </div>
                 <div data-aos="fade-left">
                     <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white !important">
@@ -289,8 +304,11 @@
             </div>
             
             <div class="max-w-5xl mx-auto" data-aos="fade-up">
-                <img src="assets/marina_day.jpg" alt="Mapa do Empreendimento" class="w-full rounded-lg shadow-2xl cursor-pointer" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
-                <p class="text-center text-gray-500 mt-4 italic">Clique na imagem para ampliar o mapa de implantação</p>
+                <picture>
+                    <source srcset="assets/marina_day.webp" type="image/webp">
+                    <img src="assets/marina_day.jpg" alt="Mapa de implantação detalhado do condomínio Mônaco Grand Marina" class="w-full rounded-lg shadow-2xl cursor-pointer" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                </picture>
+                <p class="text-center text-gray-400 mt-4 italic">Clique na imagem para ampliar o mapa de implantação</p>
             </div>
         </div>
     </section>
@@ -304,22 +322,40 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/clubhouse_facade.jpg" alt="Fachada do Club House" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/clubhouse_facade.webp" type="image/webp">
+                        <img src="assets/clubhouse_facade.jpg" alt="Fachada imponente do Club House" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <img src="assets/marina_night.jpg" alt="Marina à Noite" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/marina_night.webp" type="image/webp">
+                        <img src="assets/marina_night.jpg" alt="Marina iluminada durante a noite" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <img src="assets/pool_sunset.jpg" alt="Pôr do sol na piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/pool_sunset.webp" type="image/webp">
+                        <img src="assets/pool_sunset.jpg" alt="Pôr do sol cinematográfico visto da piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="400">
-                    <img src="assets/marina_day.jpg" alt="Vista Aérea da Marina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/marina_day.webp" type="image/webp">
+                        <img src="assets/marina_day.jpg" alt="Vista aérea da marina e canais navegáveis" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="500">
-                    <img src="assets/luxury_houses.jpg" alt="Residências de Alto Padrão" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/luxury_houses.webp" type="image/webp">
+                        <img src="assets/luxury_houses.jpg" alt="Casas de luxo integradas aos canais" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer card-hover" data-aos="fade-up" data-aos-delay="600">
-                    <img src="assets/pool_view.jpg" alt="Vista Exclusiva da Piscina" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    <picture>
+                        <source srcset="assets/pool_view.webp" type="image/webp">
+                        <img src="assets/pool_view.jpg" alt="Vista relaxante da área das piscinas" class="w-full h-64 object-cover" loading="lazy" decoding="async" onclick="openLightbox(this.src)">
+                    </picture>
                 </div>
             </div>
         </div>
