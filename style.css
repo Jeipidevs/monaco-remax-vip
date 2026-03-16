@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* High-Luxury Nautical Color Palette */
@@ -23,7 +23,7 @@
   --gold-gradient: linear-gradient(135deg, #8a6d3b 0%, #c5a059 50%, #f1d592 100%);
 
   --premium-font: 'Playfair Display', serif;
-  --body-font: 'Inter', sans-serif;
+  --body-font: 'Inter Tight', sans-serif;
 
   /* Animation */
   --transition-smooth: 0.4s ease-out;
