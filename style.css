@@ -192,6 +192,10 @@ h1, h2, h3, .heading-font {
   will-change: transform;
 }
 
+.whatsapp-float i {
+  color: #FFFFFF !important;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -368,6 +372,10 @@ h1, h2, h3, .heading-font {
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top i {
+  color: #000000 !important;
 }
 
 .back-to-top.active {
@@ -585,7 +593,13 @@ p {
 
 /* Global Icon Standardization */
 .fas, .fab, .far, .fa-solid, .fa-regular, .fa-brands {
-    color: var(--primary) !important;
+    color: var(--primary);
+}
+
+/* Specific overrides for icons on light backgrounds */
+.text-black-icon i,
+.lifestyle-grid i {
+    color: #000000 !important;
 }
 
 .btn .fas, .btn .fab, .btn .far, .btn .fa-solid, .btn .fa-regular, .btn .fa-brands {
