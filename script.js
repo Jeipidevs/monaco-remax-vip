@@ -16,7 +16,7 @@ const navLinks = document.querySelector('.nav-links');
 // Back to Top button
 const backToTop = document.createElement('div');
 backToTop.className = 'back-to-top';
-backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+backToTop.innerHTML = '<i class="fas fa-chevron-up" style="color: black !important;"></i>';
 document.body.appendChild(backToTop);
 
 backToTop.addEventListener('click', () => {
