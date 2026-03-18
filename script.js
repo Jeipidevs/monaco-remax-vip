@@ -1,8 +1,8 @@
 // Initialize AOS with performance optimizations
 if (typeof AOS !== 'undefined') {
     AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
+        duration: 1200,
+        easing: 'ease-in-out-sine',
         once: true,
         offset: 50
     });
